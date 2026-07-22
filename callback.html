@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>LOSAI — Collegamento TikTok</title>
+<title>LOSAI — TikTok connection</title>
 <style>
   body{font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;max-width:600px;margin:80px auto;padding:0 24px;text-align:center;color:#1a1a1a;line-height:1.6}
   h2{background:linear-gradient(135deg,#7C3AED,#2563EB);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -12,8 +12,8 @@
 </style>
 </head>
 <body>
-<h2>Collegamento TikTok</h2>
-<p id="msg">Elaborazione in corso…</p>
+<h2>TikTok connection</h2>
+<p id="msg">Processing…</p>
 <div class="box" id="detail" style="display:none"></div>
 <script>
   var qs = window.location.search;
@@ -21,14 +21,14 @@
   var msg = document.getElementById('msg');
   var det = document.getElementById('detail');
   if (p.get('code')) {
-    msg.textContent = "Autorizzazione ricevuta — ti riportiamo all'app LOSAI…";
+    msg.textContent = "Authorization received — returning you to the LOSAI app…";
     window.location.href = "http://127.0.0.1:5055/tiktok/callback" + qs;
   } else if (p.get('error')) {
-    msg.textContent = "Autorizzazione non riuscita.";
+    msg.textContent = "Authorization failed.";
     det.style.display = 'block';
     det.innerHTML = "<b>" + p.get('error') + "</b><br>" + (p.get('error_description') || '');
   } else {
-    msg.textContent = "Nessun codice di autorizzazione ricevuto.";
+    msg.textContent = "No authorization code received.";
   }
 </script>
 </body>
